@@ -46,5 +46,4 @@ def add_dexterity_setup_items(portal):
         ("cultivars", "Cultivars", "Cultivars"),
     ]
     setup = api.get_senaite_setup()
-    import pdb; pdb.set_trace()
     add_dexterity_items(setup, items)
