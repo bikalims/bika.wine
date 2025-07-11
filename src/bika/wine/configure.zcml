@@ -19,18 +19,18 @@
 
   <genericsetup:registerProfile
       name="default"
-      title="bika.wine"
+      title="BIKA WINE"
       directory="profiles/default"
-      description="Installs the bika.wine add-on."
+      description="Installs the BIKA WINE add-on."
       provides="Products.GenericSetup.interfaces.EXTENSION"
       post_handler=".setuphandlers.post_install"
       />
 
   <genericsetup:registerProfile
       name="uninstall"
-      title="bika.wine (uninstall)"
+      title="BIKA WINE (uninstall)"
       directory="profiles/uninstall"
-      description="Uninstalls the bika.wine add-on."
+      description="Uninstalls the BIKA WINE add-on."
       provides="Products.GenericSetup.interfaces.EXTENSION"
       post_handler=".setuphandlers.uninstall"
       />
