@@ -23,9 +23,9 @@ class SamplesListingViewAdapter(object):
         if not is_installed():
             return
 
-        cultivar = [("Cultivar", {"toggle": False, "title": _("Cultivar")})]
+        cultivar = [("Cultivar", {"toggle": True, "title": _("Cultivar")})]
         self.listing.columns.update(cultivar)
-        vintage = [("Vintage", {"toggle": False, "title": _("Vintage")})]
+        vintage = [("Vintage", {"toggle": True, "title": _("Vintage")})]
         self.listing.columns.update(vintage)
         for i in range(len(self.listing.review_states)):
             self.listing.review_states[i]["columns"].append("Cultivar")
