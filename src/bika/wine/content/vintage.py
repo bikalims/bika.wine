@@ -1,42 +1,23 @@
 # -*- coding: utf-8 -*-
-# from plone.app.textfield import RichText
-# from plone.autoform import directives
+
 from AccessControl import ClassSecurityInfo
 from plone.dexterity.content import Item
-# from plone.namedfile import field as namedfile
 from plone.supermodel import model
-# from plone.supermodel.directives import fieldset
-# from z3c.form.browser.radio import RadioFieldWidget
-from zope import schema
 from zope.interface import implementer
 
 from bika.lims.interfaces import IDeactivable
-from bika.wine.interfaces import ICultivar
+from bika.wine.interfaces import IVintage
 from bika.lims import api
 from senaite.core.catalog import SETUP_CATALOG
 
 
-from bika.wine.config import _
-
-
-class ICultivarSchema(model.Schema):
-    """ Marker interface and Dexterity Python Schema for Cultivar
+class IVintageSchema(model.Schema):
+    """ Marker interface and Dexterity Python Schema for Vintage
     """
-    code = schema.TextLine(
-        title=_(
-            u"title_cultivar_code",
-            default=u"Code"
-        ),
-        description=_(
-            u"description_cultivar_code",
-            default=u"Code of the cultivar"
-        ),
-        required=True,
-    )
 
 
-@implementer(ICultivar, ICultivarSchema, IDeactivable)
-class Cultivar(Item):
+@implementer(IVintage, IVintageSchema, IDeactivable)
+class Vintage(Item):
     """
     """
     _catalogs = [SETUP_CATALOG]

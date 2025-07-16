@@ -17,3 +17,13 @@ class ICultivars(Interface):
 class ICultivar(Interface):
     """Marker interface for cultivar
     """
+
+
+class IVintages(Interface):
+    """Marker interface for vintages setup folder
+    """
+
+
+class IVintage(Interface):
+    """Marker interface for vintage
+    """

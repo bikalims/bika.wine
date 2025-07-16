@@ -1,0 +1,26 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:browser="http://namespaces.zope.org/browser"
+    xmlns:zcml="http://namespaces.zope.org/zcml">
+
+  <include package="senaite.core.permissions" />
+
+
+  <!-- Cultivars Folder -->
+  <browser:page
+      for="bika.wine.interfaces.ICultivars"
+      name="view"
+      class=".cultivars.CultivarsView"
+      permission="senaite.core.permissions.ManageBika"
+      layer="bika.wine.interfaces.IBikaWineLayer"/>
+
+  <!-- Vintages Folder -->
+  <browser:page
+      for="bika.wine.interfaces.IVintages"
+      name="view"
+      class=".vintages.VintagesView"
+      permission="senaite.core.permissions.ManageBika"
+      layer="bika.wine.interfaces.IBikaWineLayer"/>
+
+
+</configure>
