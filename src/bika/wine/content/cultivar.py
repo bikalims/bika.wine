@@ -31,7 +31,7 @@ class ICultivarSchema(model.Schema):
             u"description_cultivar_code",
             default=u"Code of the cultivar"
         ),
-        required=True,
+        required=False,
     )
 
 
