@@ -1,6 +1,10 @@
 # -*- coding: utf-8 -*-
 """Init and utils."""
-from zope.i18nmessageid import MessageFactory
+from bika.lims.api import get_request
+from bika.wine.interfaces import IBikaWineLayer
 
 
-_ = MessageFactory('bika.wine')
+def is_installed():
+    """Returns whether the product is installed or not"""
+    request = get_request()
+    return IBikaWineLayer.providedBy(request)

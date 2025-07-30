@@ -5,8 +5,8 @@ from zope.interface import implements
 
 from bika.lims import api
 from bika.lims.utils import get_link
-from bika.extras import is_installed
-from bika.extras.config import _
+from bika.wine import is_installed
+from bika.wine.config import _
 from senaite.app.listing.interfaces import IListingView
 from senaite.app.listing.interfaces import IListingViewAdapter
 
@@ -36,18 +36,22 @@ class SamplesListingViewAdapter(object):
             return item
 
         full_object = api.get_object(obj)
-        cultivar = full_object.Schema().getField("Cultivar")
+        cultivar = None
+        cultivar_field = full_object.Schema().getField("Cultivar")
+        if cultivar_field:
+            cultivar = cultivar_field.get(full_object)
         if cultivar:
-            cultivar = cultivar.get(full_object)
             cultivar_title = cultivar.Title()
             cultivar_url = cultivar.absolute_url()
             cultivar_link = get_link(cultivar_url, cultivar_title)
             item["Cultivar"] = cultivar_title
             item["replace"]["Cultivar"] = cultivar_link
 
-        vintage = full_object.Schema().getField("Vintage")
+        vintage = None
+        vintage_field = full_object.Schema().getField("Vintage")
+        if vintage_field:
+            vintage = vintage_field.get(full_object)
         if vintage:
-            vintage = vintage.get(full_object)
             vintage_title = vintage.Title()
             vintage_url = vintage.absolute_url()
             vintage_link = get_link(vintage_url, vintage_title)
